@@ -98,30 +98,29 @@ creditCardField.addEventListener(
 );
 
 
+const minValue = document.getElementById("min-value");
+const maxValue = document.getElementById("max-value");
+const valueTocheck = document.getElementById("value-to-check");
+const inRangeStatus = {
+    OK: document.getElementById("in-range-ok"),
+    NOK: document.getElementById("in-range-not-ok"),
+};
 
-// function updateArray(array, idx, value){
-//     array[idx]=+value;
-// }
-// const inRangeStatus = {
-//     OK: document.getElementById("in-range-ok"),
-//     NOK: document.getElementById("in-range-not-ok"),
-// };
-// let valuesOfRange = [];
+let valuesOfRange = [];
 
-// function changeStatusRange (array, statusObject) {
-//     statusObject.OK.style.display = isInRange(...array) ? 'flex': 'none';
-//     statusObject.NOK.style.display = isInRange(...array) ? 'none': 'flex';
-// }
+function changeStatusRange (array, statusObject) {
+    console.log(array);
+    statusObject.OK.style.display = validLib.isInRange(...array) ? 'flex': 'none';
+    statusObject.NOK.style.display = validLib.isInRange(...array) ? 'none': 'flex';
+}
 
-// function validateInRange(){
-//     rangeInputs = document.querySelectorAll('input[type="number"]');
-//     rangeInputs.forEach(
-//         function(input, idx) {
-//             input.addEventListener(
-//                 "keyup", 
-//                 function () {
-//                     updateArray(valuesOfRange, idx, input.value);
-//                     changeStatusRange(valuesOfRange, inRangeStatus);
-//                 });
-//     });
-// }
+function listenRangeInput (input, array, idx, statusObj) {
+    input.addEventListener("keyup",function (){
+        array[idx] = +input.value;
+        changeStatusRange(array, statusObj);
+    });
+}
+
+listenRangeInput(minValue,  valuesOfRange, 0, inRangeStatus);
+listenRangeInput(maxValue, valuesOfRange, 1, inRangeStatus);
+listenRangeInput(valueTocheck, valuesOfRange, 2, inRangeStatus);
