@@ -57,6 +57,15 @@ isValidCreditCard(creditCardNumber: string) => boolean
 Checks if a given number is within a given range.
 
 ```javascript
+isInRange(min: number, max: number, number: number) => boolean
+```
+
+## Usage
+To use this library, import the required function and call it with the appropriate arguments. For example:
+
+```javascript
+import { isValidEmail } from 'validation-library';
+
 const isValid = isValidEmail('example@domain.com');
 ```
 
