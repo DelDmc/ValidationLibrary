@@ -23,17 +23,17 @@ function isValidEmail (email) {
     * @param {string} password - user's input password
     * @returns {boolean} true/false if password valid or not
 */ 
-function isComplexPassword (password) {
+export function isComplexPassword (password) {
     let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[/^~@$!%*#?&])[A-Za-z\d~^@$!%*#?&]{8,}$/;
     return passwordRegex.test(password);
 }
 
-function isValidPhoneNumber (phoneNumber) {
+export function isValidPhoneNumber (phoneNumber) {
     let phoneNumberRegex = /^\d{10}$/;
     return phoneNumberRegex.test(phoneNumber);
 }
 
-function isValidCreditCard (creditCardNumber) {
+export function isValidCreditCard (creditCardNumber) {
     const creditCardsRegexExpressions = {
         mastercard: /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/,
         americanExpress: /^3[47][0-9]{13}$/,
@@ -51,6 +51,6 @@ function isValidCreditCard (creditCardNumber) {
     }
 }
 
-function isInRange(min, max, number) {
+export function isInRange(min, max, number) {
     return number >= min && number <= max;
   }

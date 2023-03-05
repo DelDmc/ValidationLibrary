@@ -1,4 +1,4 @@
-import { notEmptyValidation, isComplexPassword } from "https://deldmc.github.io/ValidationLibrary/validationLib.js";
+import * as validLib from "https://deldmc.github.io/ValidationLibrary/validationLib.js";
 
 function validateField(inputField, OKStatus, NOKStatus, validationFunc){
         const isValid = validationFunc(inputField.value);
@@ -24,11 +24,12 @@ notEmptyField.addEventListener(
             notEmptyField, 
             notEmptyFieldStatus.OK, 
             notEmptyFieldStatus.NOK, 
-            notEmptyValidation
+            validLib.notEmptyValidation
             );
     }
 );
-            
+  
+
 const passwordField = document.getElementById("password-input");
 const passStatus = {
     OK: document.getElementById("pass-ok"),
@@ -40,19 +41,27 @@ passwordField.addEventListener(
             passwordField, 
             passStatus.OK, 
             passStatus.NOK, 
-            isComplexPassword
+            validLib.isComplexPassword
             );
     }
 );
+
 
 const phoneNumberField = document.getElementById("phone-number-input");
 const phoneNumberStatus = {
     OK: document.getElementById("phone-number-ok"),
     NOK: document.getElementById("phone-number-not-ok"),
 };
-function validatePhoneNumber (){
-    validateField(phoneNumberField, phoneNumberStatus.OK, phoneNumberStatus.NOK, isValidPhoneNumber);
-}
+phoneNumberField.addEventListener(
+    "keyup", function() {
+        validateField(
+            phoneNumberField, 
+            phoneNumberStatus.OK, 
+            phoneNumberStatus.NOK, 
+            validLib.isValidPhoneNumber
+            );
+    }
+);
 
 
 const emailField = document.getElementById("email-input");
@@ -60,9 +69,16 @@ const emailStatus = {
     OK: document.getElementById("email-ok"),
     NOK: document.getElementById("email-not-ok"),
 };
-function validateEmail(){
-    validateField(emailField, emailStatus.OK, emailStatus.NOK, isValidEmail);
-}
+emailField.addEventListener(
+    "keyup", function() {
+        validateField(
+            emailField, 
+            emailStatus.OK, 
+            emailStatus.NOK, 
+            validLib.isValidEmail
+            );
+    }
+);
 
 
 const creditCardField = document.getElementById("credit-card-input");
@@ -70,35 +86,42 @@ const creditCardStatus = {
     OK: document.getElementById("credit-card-ok"),
     NOK: document.getElementById("credit-card-not-ok"),
 };
-function validateCreditCard(){
-    validateField(creditCardField, creditCardStatus.OK, creditCardStatus.NOK, isValidCreditCard);
-}
+creditCardField.addEventListener(
+    "keyup", function() {
+        validateField(
+            creditCardField, 
+            creditCardStatus.OK, 
+            creditCardStatus.NOK, 
+            validLib.isValidCreditCard
+            );
+    }
+);
 
 
-const inRangeStatus = {
-    OK: document.getElementById("in-range-ok"),
-    NOK: document.getElementById("in-range-not-ok"),
-};
-let valuesOfRange = [];
 
-function updateArray(array, idx, value){
-    array[idx]=+value;
-}
+// function updateArray(array, idx, value){
+//     array[idx]=+value;
+// }
+// const inRangeStatus = {
+//     OK: document.getElementById("in-range-ok"),
+//     NOK: document.getElementById("in-range-not-ok"),
+// };
+// let valuesOfRange = [];
 
-function changeStatusRange (array, statusObject) {
-    statusObject.OK.style.display = isInRange(...array) ? 'flex': 'none';
-    statusObject.NOK.style.display = isInRange(...array) ? 'none': 'flex';
-}
+// function changeStatusRange (array, statusObject) {
+//     statusObject.OK.style.display = isInRange(...array) ? 'flex': 'none';
+//     statusObject.NOK.style.display = isInRange(...array) ? 'none': 'flex';
+// }
 
-function validateInRange(){
-    rangeInputs = document.querySelectorAll('input[type="number"]');
-    rangeInputs.forEach(
-        function(input, idx) {
-            input.addEventListener(
-                "keyup", 
-                function () {
-                    updateArray(valuesOfRange, idx, input.value);
-                    changeStatusRange(valuesOfRange, inRangeStatus);
-                });
-    });
-}
+// function validateInRange(){
+//     rangeInputs = document.querySelectorAll('input[type="number"]');
+//     rangeInputs.forEach(
+//         function(input, idx) {
+//             input.addEventListener(
+//                 "keyup", 
+//                 function () {
+//                     updateArray(valuesOfRange, idx, input.value);
+//                     changeStatusRange(valuesOfRange, inRangeStatus);
+//                 });
+//     });
+// }
