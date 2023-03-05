@@ -44,7 +44,6 @@ export function isValidCreditCard (creditCardNumber) {
         diners: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
     };
     for (let creditcard in creditCardsRegexExpressions) {
-        console.log(creditCardsRegexExpressions[creditcard]);
         if (creditCardsRegexExpressions[creditcard].test(creditCardNumber)){
             return true;
         }
