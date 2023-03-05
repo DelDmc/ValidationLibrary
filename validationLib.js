@@ -1,4 +1,4 @@
-function notEmptyValidation(value) {
+export function notEmptyValidation(value) {
     if (value == null || value.trim() === '') {
       return false;
     }

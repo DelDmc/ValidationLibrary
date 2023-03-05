@@ -1,6 +1,11 @@
+import { notEmptyValidation } from "https://deldmc.github.io/ValidationLibrary/validationLib.js";
+
+
 
 function validateField(inputField, OKStatus, NOKStatus, validationFunc){
         const isValid = validationFunc(inputField.value);
+        console.log(isValid);
+        console.log(inputField.value);
         changeStatusOneField(OKStatus, NOKStatus, isValid);
     }
 
@@ -16,13 +21,15 @@ const notEmptyFieldStatus = {
     NOK:  document.getElementById("empty-input-not-ok")
 };
 notEmptyField.addEventListener(
-    "keyup", 
+    "keyup", function() {
         validateField(
             notEmptyField, 
             notEmptyFieldStatus.OK, 
             notEmptyFieldStatus.NOK, 
             notEmptyValidation
-            ));
+            );
+    }
+);
             
 const passwordField = document.getElementById("password-input");
 const passStatus = {
