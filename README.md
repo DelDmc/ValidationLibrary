@@ -60,8 +60,8 @@ Checks if a given number is within a given range.
 const isValid = isValidEmail('example@domain.com');
 ```
 
-## Link to paste function to your project
+## Link to paste library to your project
 [https://deldmc.github.io/ValidationLibrary/app/validationLib.js](https://deldmc.github.io/ValidationLibrary/app/validationLib.js)
 
-## You can check how the validation in action
+## You can check the validation lib in action
 [TRY IT NOW](https://deldmc.github.io/ValidationLibrary/app/)
