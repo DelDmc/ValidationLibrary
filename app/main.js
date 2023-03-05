@@ -1,4 +1,4 @@
-import * as validLib from "https://deldmc.github.io/ValidationLibrary/validationLib.js";
+import * as validLib from "https://deldmc.github.io/ValidationLibrary/app/validationLib.js";
 
 function validateField(inputField, OKStatus, NOKStatus, validationFunc){
         const isValid = validationFunc(inputField.value);
