@@ -1,6 +1,4 @@
-import { notEmptyValidation } from "https://deldmc.github.io/ValidationLibrary/validationLib.js";
-
-
+import { notEmptyValidation, isComplexPassword } from "https://deldmc.github.io/ValidationLibrary/validationLib.js";
 
 function validateField(inputField, OKStatus, NOKStatus, validationFunc){
         const isValid = validationFunc(inputField.value);
@@ -36,10 +34,16 @@ const passStatus = {
     OK: document.getElementById("pass-ok"),
     NOK: document.getElementById("pass-not-ok"),
 };
-function validatePassword (){
-    validateField(passwordField, passStatus.OK, passStatus.NOK, isComplexPassword);
-}
-
+passwordField.addEventListener(
+    "keyup", function() {
+        validateField(
+            passwordField, 
+            passStatus.OK, 
+            passStatus.NOK, 
+            isComplexPassword
+            );
+    }
+);
 
 const phoneNumberField = document.getElementById("phone-number-input");
 const phoneNumberStatus = {
