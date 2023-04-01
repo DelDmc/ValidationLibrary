@@ -1,0 +1,19 @@
+{
+  "name": "dmc-validation-lib",
+  "version": "1.0.4",
+  "description": "This is a simple validation library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DelDmc/ValidationLibrary.git"
+  },
+  "homepage": "https://https://github.com/DelDmc/ValidationLibrary#readme",
+  "main": "app/validationLib.js",
+  "author": "Del Dmc <del12dmc@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jshint": "^2.13.6"
+  },
+  "parserOptions": {
+    "ecmaVersion": 12
+  }
+}
